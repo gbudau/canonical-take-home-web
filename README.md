@@ -2,16 +2,30 @@
 
 ## Using Docker
 
-1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.
-1. Build your container: `docker build -t nextjs-docker .`.
-1. Run your container: `docker run -p 3000:3000 nextjs-docker`.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Install Docker](https://docs.docker.com/get-docker/) on your machine.
+- Build your container:
 
-You can view your images created with `docker images`.
+```bash
+docker build -t nextjs-docker .
+```
+
+- Run your container:
+
+```bash
+docker run -p 3000:3000 nextjs-docker
+```
+
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Running Locally
 
-First, run the development server:
+- Install the dependencies:
+
+```bash
+npm ci
+```
+
+- Run the development server:
 
 ```bash
 npm run dev
