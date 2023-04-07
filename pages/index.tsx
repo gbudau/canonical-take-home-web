@@ -5,8 +5,15 @@ import PostList, {
   PostListProps,
   PostPropsWithId,
 } from '../components/PostList';
+import Error from 'next/error';
 
-export default function Home({ posts }: PostListProps) {
+type HomeProps = PostListProps & { error: number | null };
+
+export default function Home({ posts, error }: HomeProps) {
+  if (error) {
+    return <Error statusCode={error} />;
+  }
+
   return (
     <>
       <Head>
@@ -41,7 +48,12 @@ export async function getServerSideProps() {
   const url =
     'https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json';
   const res = await fetch(url);
+
+  if (!res.ok) {
+    return { props: { posts: [], error: res.status } };
+  }
+
   const data = await res.json();
 
-  return { props: { posts: mapDataToPosts(data) } };
+  return { props: { posts: mapDataToPosts(data), error: null } };
 }
