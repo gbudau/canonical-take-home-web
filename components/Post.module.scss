@@ -1,0 +1,40 @@
+.post {
+  height: 100%;
+  border-top: 4px solid #a87ca0;
+  border-radius: 0.125rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 3px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.header,
+.footer {
+  padding: 1rem 0.5rem;
+  margin: 0 0.5rem;
+
+  &:empty {
+    &:before {
+      content: '';
+      display: inline-block;
+    }
+  }
+}
+
+.header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dotted #d9d9d9;
+}
+
+.content {
+  border: none;
+}
+
+.footer {
+  border-top: 1px dotted #d9d9d9;
+}
